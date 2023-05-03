@@ -152,7 +152,8 @@ WriteResult({ "nRemoved" : 1 })
 	"director" : "SSR",
 	"rating" : 5
 }
-> > db.movie.updateOne({name : "RRR"},{$set :{"director" :"YYY"},$currentDate: { lastModified: true }})
+
+> db.movie.updateOne({name : "RRR"},{$set :{"director" :"YYY"},$currentDate: { lastModified: true }})
 { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
 
 > db.movie.find().pretty();
@@ -164,6 +165,47 @@ WriteResult({ "nRemoved" : 1 })
 	"director" : "YYY",
 	"rating" : 5,
 	"lastModified" : ISODate("2023-05-03T05:08:21.559Z")
+}
+> 
+> db.movie.updateMany({name : "ABC"},{$set :{"director" :"YYZZ","rating" :"4"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.movie.find().pretty();
+{
+	"_id" : ObjectId("644a313cf639fe4a8227fe03"),
+	"name" : "RRR",
+	"realesed" : 2022,
+	"budget" : 434356,
+	"director" : "YYY",
+	"rating" : 5,
+	"lastModified" : ISODate("2023-05-03T05:08:21.559Z")
+}
+{
+	"_id" : ObjectId("6451f1890c15ac6cef95cec2"),
+	"name" : "RRR",
+	"realesed" : 2022,
+	"budget" : 434356,
+	"director" : "SSR",
+	"rating" : 5
+}
+{
+	"_id" : ObjectId("6451f1890c15ac6cef95cec3"),
+	"name" : "KGF",
+	"realesed" : 2022,
+	"budget" : 534356,
+	"director" : "SSR",
+	"rating" : 5,
+	"comment" : [
+		"GOOD",
+		"VERY GOOD"
+	]
+}
+{
+	"_id" : ObjectId("6451f1890c15ac6cef95cec4"),
+	"name" : "ABC",
+	"realesed" : 2021,
+	"budget" : 987654,
+	"director" : "YYZZ",
+	"rating" : "4"
 }
 > 
 
