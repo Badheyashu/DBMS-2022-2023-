@@ -1,5 +1,5 @@
 Delimiter $$
-create Trigger abhi 
+create Trigger yash 
 Before insert on
 student for each row 
 begin 
